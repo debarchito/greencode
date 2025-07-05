@@ -11,7 +11,7 @@ function isFormContentType(request: Request) {
   );
 }
 
-export function csrf(allowedPaths: string[] = [], allowedOrigins: string[] = []): Handle {
+function csrf(allowedPaths: string[] = [], allowedOrigins: string[] = []): Handle {
   return async ({ event, resolve }) => {
     const { request, url } = event;
     const requestOrigin = request.headers.get("origin");
