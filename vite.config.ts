@@ -8,8 +8,8 @@ export default defineConfig({
   plugins: [tailwindcss(), sveltekit(), devtoolsJson()],
   server: {
     https: {
-      key: fs.readFileSync(`${__dirname}/cert/key.pem`),
-      cert: fs.readFileSync(`${__dirname}/cert/cert.pem`),
+      key: fs.readFileSync(`${import.meta.dirname}/cert/key.pem`),
+      cert: fs.readFileSync(`${import.meta.dirname}/cert/cert.pem`),
     },
     proxy: {},
   },
