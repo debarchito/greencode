@@ -1,7 +1,7 @@
 {
   "name": "greencode",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "description": "The website for GreenCode Hackathon",
   "type": "module",
   "scripts": {
     "start": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & node build/index.js",
