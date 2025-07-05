@@ -31,7 +31,7 @@ export const actions: Actions = {
       await locals.pb.collection("users").authWithPassword(email, password);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      console.log("[! /sign-in] =>", err);
+      locals.logger.error(err);
 
       if (err?.status === 400 && err?.data?.message === "Failed to authenticate.") {
         return fail(401, { message: "Invalid credentials." });

@@ -1,16 +1,18 @@
 import type { Handle } from "@sveltejs/kit";
 import { env } from "$env/dynamic/private";
 import PocketBase from "pocketbase";
+import pretty from "pino-pretty";
+import pino from "pino";
 
 export const handle: Handle = async ({ event, resolve }) => {
   event.locals.pb = new PocketBase(env.POCKETBASE_URL);
   event.locals.pb.authStore.loadFromCookie(event.request.headers.get("cookie") || "");
-  const record = event.locals.pb.authStore.record;
+  event.locals.logger = pino(pretty({ colorize: true }));
 
   try {
     if (event.locals.pb.authStore.isValid) {
       await event.locals.pb.collection("users").authRefresh();
-      event.locals.user = structuredClone(record);
+      event.locals.user = structuredClone(event.locals.pb.authStore.record);
     }
   } catch {
     event.locals.pb.authStore.clear();
