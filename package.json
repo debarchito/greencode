@@ -29,6 +29,7 @@
     "@sveltejs/kit": "^2.22.2",
     "@sveltejs/vite-plugin-svelte": "^5.1.0",
     "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24.0.10",
     "@types/validator": "^13.15.2",
     "clsx": "^2.1.1",
     "eslint": "^9.30.1",
