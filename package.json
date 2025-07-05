@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & node build/index.js",
+    "db": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT",
     "dev": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & vite dev",
     "build": "vite build",
     "preview": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & vite preview",
