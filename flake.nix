@@ -21,6 +21,7 @@
           devShells.default = pkgs.mkShellNoCC {
             name = "greencode";
             packages = [
+              pkgs.mkcert
               pkgs.nodejs-slim_24
               pkgs.pnpm
               pkgs.pocketbase
