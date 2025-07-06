@@ -11,6 +11,14 @@ export function isValidPassword(password: string) {
   );
 }
 
+export function isValidName(name: string) {
+  return name.length >= 3 && name.length <= 255 && /^[a-z0-9_-]+$/.test(name);
+}
+
+export function isValidDisplayName(name: string) {
+  return name.length <= 255;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type WithoutChild<T> = T extends { child?: any } ? Omit<T, "child"> : T;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
