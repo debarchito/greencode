@@ -30,3 +30,6 @@ pb_data/*
 
 # mkcert Certificates
 cert
+
+# just
+justfile
