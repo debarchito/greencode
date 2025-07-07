@@ -16,9 +16,9 @@
     "lint": "prettier --check . && eslint ."
   },
   "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.2.6",
     "@fontsource/merriweather": "^5.2.9",
-    "@fontsource/montserrat": "^5.2.6",
-    "@fontsource/source-code-pro": "^5.2.6",
+    "@fontsource/poppins": "^5.2.6",
     "pino": "^9.7.0",
     "pino-pretty": "^13.0.0",
     "pocketbase": "^0.26.1",
