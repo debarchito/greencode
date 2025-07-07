@@ -11,3 +11,7 @@ export function isValidName(name: string) {
 export function isValidDisplayName(name: string) {
   return name.length <= 255;
 }
+
+export function redirectToMeOnSignIn(url: URL) {
+  return `/sign-in?redirectTo=${url.pathname + url.search}`;
+}
