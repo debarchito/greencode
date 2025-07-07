@@ -31,7 +31,7 @@
 
 <div class="flex flex-col gap-6">
   <Card.Root class="md:min-w-sm">
-    <Card.Header class="text-center">
+    <Card.Header class="text-center select-none">
       <Card.Title class="text-2xl">Let's get you there!</Card.Title>
       <Card.Description>Sign up with OAuth or an email</Card.Description>
     </Card.Header>
@@ -45,8 +45,12 @@
           </Tabs.List>
           <Tabs.Content value="oauth" class="mt-3">
             <div class="flex flex-col gap-4">
-              <Button variant="outline" class="w-full">Sign up with <Google /></Button>
-              <Button variant="outline" class="w-full">Sign up with <GitHub /></Button>
+              <Button variant="outline" class="text-foreground/80 hover:text-foreground w-full">
+                Sign in with <Google />
+              </Button>
+              <Button variant="outline" class="text-foreground/80 hover:text-foreground w-full">
+                Sign in with <GitHub />
+              </Button>
             </div>
           </Tabs.Content>
           <Tabs.Content value="email" class="mt-3">
@@ -136,14 +140,14 @@
             </form>
 
             {#if form?.message}
-              <Alert.Root variant="destructive">
+              <Alert.Root variant="destructive" class="mt-4">
                 <TriangleAlert />
                 <Alert.Description class="max-w-70">
                   <span>{form?.message}</span>
                 </Alert.Description>
               </Alert.Root>
             {:else if password.length !== 0 && !validPassword}
-              <Alert.Root variant="destructive">
+              <Alert.Root variant="destructive" class="mt-4">
                 <TriangleAlert />
                 <Alert.Description class="max-w-70">
                   <span>
@@ -153,7 +157,7 @@
                 </Alert.Description>
               </Alert.Root>
             {:else if passwordMismatch}
-              <Alert.Root variant="destructive">
+              <Alert.Root variant="destructive" class="mt-4">
                 <TriangleAlert />
                 <Alert.Description class="max-w-70">
                   <span>Repeated password is not the same.</span>
@@ -163,7 +167,7 @@
           </Tabs.Content>
         </Tabs.Root>
 
-        <div class="mt-2 text-center text-sm">
+        <div class="mt-2 text-center text-sm select-none">
           Already have an account?
           <a href={`/sign-in${url.search}`} class="underline">Sign in</a>
         </div>

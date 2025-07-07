@@ -12,4 +12,5 @@ export const DELETE: RequestHandler = async ({ locals }) => {
   return redirect(307, "/sign-in");
 };
 
+export const GET: RequestHandler = DELETE;
 export const POST: RequestHandler = DELETE;

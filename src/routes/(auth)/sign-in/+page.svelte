@@ -30,13 +30,19 @@
     <Card.Content>
       <div class="grid gap-6">
         <div class="flex flex-col gap-4">
-          <Button variant="outline" class="w-full">Sign in with <Google /></Button>
-          <Button variant="outline" class="w-full">Sign in with <GitHub /></Button>
+          <Button variant="outline" class="text-foreground/80 hover:text-foreground w-full">
+            Sign in with <Google />
+          </Button>
+          <Button variant="outline" class="text-foreground/80 hover:text-foreground w-full">
+            Sign in with <GitHub />
+          </Button>
         </div>
         <div
           class="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t"
         >
-          <span class="bg-card text-muted-foreground relative z-10 px-2"> Or continue with </span>
+          <span class="bg-card text-muted-foreground relative z-10 px-2 select-none">
+            Or continue with
+          </span>
         </div>
         <div class="grid gap-4">
           <form class="grid gap-4" method="POST" use:enhance>
@@ -59,7 +65,7 @@
               <div class="relative">
                 <Password.Root>
                   <Password.Input id="password" name="password">
-                    <Password.ToggleVisibility />
+                    <Password.ToggleVisibility class="hover:text-red-200" />
                   </Password.Input>
                 </Password.Root>
               </div>
