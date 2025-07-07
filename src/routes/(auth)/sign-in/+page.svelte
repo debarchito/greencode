@@ -7,10 +7,10 @@
   import { Label } from "$lib/components/ui/label/index.js";
   import * as Alert from "$lib/components/ui/alert/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
-  import { LogIn, TriangleAlert, Eye, EyeClosed } from "@lucide/svelte";
+  import * as Password from "$lib/components/ui/password/index.js";
+  import { LogIn, TriangleAlert } from "@lucide/svelte";
 
   let { form }: { form: ActionData } = $props();
-  let showPassword = $state(false);
   let url = new URL(page.url);
 </script>
 
@@ -45,24 +45,11 @@
               <Label for="password">Password</Label>
             </div>
             <div class="relative">
-              <Input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                name="password"
-                spellcheck="false"
-                required
-              />
-              <button
-                type="button"
-                class="absolute top-1/2 right-2 -translate-y-1/2"
-                onclick={() => (showPassword = !showPassword)}
-              >
-                {#if showPassword}
-                  <EyeClosed class="size-5" />
-                {:else}
-                  <Eye class="size-5" />
-                {/if}
-              </button>
+              <Password.Root>
+                <Password.Input id="password" name="password">
+                  <Password.ToggleVisibility />
+                </Password.Input>
+              </Password.Root>
             </div>
           </div>
 

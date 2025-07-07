@@ -1,22 +1,12 @@
-import { clsx, type ClassValue } from "clsx";
+/*
+	Installed from @ieedan/shadcn-svelte-extras
+*/
+
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
-}
-
-export function isValidPassword(password: string) {
-  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/.test(
-    password,
-  );
-}
-
-export function isValidName(name: string) {
-  return name.length >= 3 && name.length <= 255 && /^[a-z0-9_-]+$/.test(name);
-}
-
-export function isValidDisplayName(name: string) {
-  return name.length <= 255;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,4 +1,4 @@
-import { isValidName, isValidDisplayName, isValidPassword } from "$lib/utils";
+import { isValidName, isValidDisplayName, isValidPassword } from "$lib/customUtils.js";
 import type { PageServerLoad, Actions } from "./$types";
 import { redirect, fail } from "@sveltejs/kit";
 import isEmail from "validator/lib/isEmail";
