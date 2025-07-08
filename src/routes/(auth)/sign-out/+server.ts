@@ -1,7 +1,7 @@
 import type { RequestHandler } from "./$types";
 import { redirect } from "@sveltejs/kit";
 
-export const DELETE: RequestHandler = async ({ locals }) => {
+export const GET: RequestHandler = async ({ locals }) => {
   if (!locals.user) {
     return redirect(307, "/sign-in");
   }
