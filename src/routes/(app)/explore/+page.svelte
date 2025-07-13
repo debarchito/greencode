@@ -15,6 +15,19 @@
   } from "@lucide/svelte";
 
   let { data } = $props();
+  let showDropdown = $state(false);
+  let dropdownRef = $state();
+
+  $effect(() => {
+    const handleClickOutside = (event) => {
+      if (showDropdown && dropdownRef && !dropdownRef.contains(event.target)) {
+        showDropdown = false;
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  });
 </script>
 
 <svelte:head>
@@ -33,7 +46,7 @@
     <nav
       class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 border-b backdrop-blur"
     >
-      <div class="container mx-auto px-4 py-4">
+      <div class="container mx-auto py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <div class="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
@@ -47,16 +60,56 @@
           </div>
 
           {#if data.user}
-            <div class="flex items-center space-x-3">
-              <Avatar class="h-8 w-8">
-                <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
-              </Avatar>
-              <div class="hidden sm:block">
-                {#if data.user.displayName}
-                  <p class="text-sm font-medium">{data.user.displayName}</p>
-                {/if}
-                <p class="text-muted-foreground text-xs">@{data.user.name}</p>
-              </div>
+            <div class="relative" bind:this={dropdownRef}>
+              <button
+                class="flex items-center space-x-3 focus:outline-none"
+                onclick={() => showDropdown = !showDropdown}
+              >
+                <Avatar class="h-8 w-8">
+                  <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
+                </Avatar>
+                <div class="hidden sm:block">
+                  {#if data.user.displayName}
+                    <p class="text-sm font-medium">{data.user.displayName}</p>
+                  {/if}
+                  <p class="text-muted-foreground text-xs">@{data.user.name}</p>
+                </div>
+              </button>
+
+              {#if showDropdown}
+                <div class="absolute right-0 mt-2 w-64 bg-background/95 backdrop-blur border border-border/40 rounded-lg shadow-lg">
+                  <div class="p-4 border-b border-border/40">
+                    <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
+                    <p class="text-muted-foreground text-xs">{data.user.email || `@${data.user.name}`}</p>
+                  </div>
+                  
+                  <div class="py-2">
+                    <a href="/settings" class="flex items-center px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                      Settings
+                    </a>
+                    <a href="/language" class="flex items-center justify-between px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                      Language
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                    <a href="/help" class="flex items-center px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                      Get help
+                    </a>
+                    <a href="/learn" class="flex items-center justify-between px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                      Learn more
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                    <form action="/logout" method="POST" class="w-full">
+                      <button type="submit" class="w-full text-left px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                        Log out
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              {/if}
             </div>
           {:else}
             <Button variant="link" href="/sign-in">
