@@ -34,9 +34,7 @@
   <title>Explore | greencode</title>
 </svelte:head>
 
-<div
-  class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col overflow-hidden bg-gradient-to-br"
->
+<div class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col bg-gradient-to-br">
   <div class="bg-primary/5 pointer-events-none absolute inset-0 -z-10">
     <div class="bg-primary/10 absolute top-1/3 left-1/4 h-96 w-96 rounded-full blur-3xl"></div>
     <div class="bg-primary/10 absolute right-1/4 bottom-1/3 h-96 w-96 rounded-full blur-3xl"></div>
