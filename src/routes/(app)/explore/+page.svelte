@@ -42,7 +42,7 @@
 
   <header class="sticky top-0 z-50 w-full">
     <nav
-      class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 border-b backdrop-blur"
+      class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 border-b backdrop-blur relative z-50"
     >
       <div class="container mx-auto py-4">
         <div class="flex items-center justify-between">
@@ -75,7 +75,7 @@
               </button>
 
               {#if showDropdown}
-                <div class="absolute right-0 mt-2 w-64 bg-background/95 backdrop-blur border border-border/40 rounded-lg shadow-lg">
+                <div class="absolute right-0 mt-2 w-64 bg-background/95 backdrop-blur border border-border/40 rounded-lg shadow-lg z-50">
                   <div class="p-4 border-b border-border/40">
                     <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
                     <p class="text-muted-foreground text-xs">{data.user.email || `@${data.user.name}`}</p>
@@ -121,7 +121,7 @@
 
     {#if data.user && !data.user?.verified}
       <Alert
-        class="border-destructive/20 bg-destructive/10 rounded-none border-x-0 border-t-0 backdrop-blur-sm"
+        class="border-destructive/20 bg-destructive/10 rounded-none border-x-0 border-t-0 backdrop-blur-sm relative z-40"
       >
         <Mail class="ml-4 h-4 w-4 flex-shrink-0" />
         <AlertDescription
