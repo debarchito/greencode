@@ -16,17 +16,17 @@
 
   let { data } = $props();
   let showDropdown = $state(false);
-  let dropdownRef = $state();
+  let dropdownRef = $state() as HTMLElement;
 
   $effect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (showDropdown && dropdownRef && !dropdownRef.contains(event.target)) {
         showDropdown = false;
       }
     };
-    
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   });
 </script>
 
@@ -34,7 +34,9 @@
   <title>Explore | greencode</title>
 </svelte:head>
 
-<div class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col bg-gradient-to-br">
+<div
+  class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col bg-gradient-to-br"
+>
   <div class="bg-primary/5 pointer-events-none absolute inset-0 -z-10">
     <div class="bg-primary/10 absolute top-1/3 left-1/4 h-96 w-96 rounded-full blur-3xl"></div>
     <div class="bg-primary/10 absolute right-1/4 bottom-1/3 h-96 w-96 rounded-full blur-3xl"></div>
@@ -42,7 +44,7 @@
 
   <header class="sticky top-0 z-50 w-full">
     <nav
-      class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 border-b backdrop-blur relative z-50"
+      class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 relative z-50 border-b backdrop-blur"
     >
       <div class="container mx-auto py-4">
         <div class="flex items-center justify-between">
@@ -61,7 +63,7 @@
             <div class="relative" bind:this={dropdownRef}>
               <button
                 class="flex items-center space-x-3 focus:outline-none"
-                onclick={() => showDropdown = !showDropdown}
+                onclick={() => (showDropdown = !showDropdown)}
               >
                 <Avatar class="h-8 w-8">
                   <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
@@ -75,21 +77,34 @@
               </button>
 
               {#if showDropdown}
-                <div class="absolute right-0 mt-2 w-64 bg-background/95 backdrop-blur border border-border/40 rounded-lg shadow-lg z-50">
-                  <div class="p-4 border-b border-border/40">
+                <div
+                  class="bg-background/95 border-border/40 absolute right-0 z-50 mt-2 w-64 rounded-lg border shadow-lg backdrop-blur"
+                >
+                  <div class="border-border/40 border-b p-4">
                     <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
-                    <p class="text-muted-foreground text-xs">{data.user.email || `@${data.user.name}`}</p>
+                    <p class="text-muted-foreground text-xs">
+                      {data.user.email || `@${data.user.name}`}
+                    </p>
                   </div>
-                  
+
                   <div class="py-2">
-                    <a href="/settings" class="flex items-center px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                    <a
+                      href="/settings"
+                      class="hover:bg-primary/10 flex items-center px-4 py-2 text-sm transition-colors"
+                    >
                       Settings
                     </a>
-                    <a href="/help" class="flex items-center px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                    <a
+                      href="/help"
+                      class="hover:bg-primary/10 flex items-center px-4 py-2 text-sm transition-colors"
+                    >
                       Get help
                     </a>
                     <form action="/logout" method="POST" class="w-full">
-                      <button type="submit" class="w-full text-left px-4 py-2 text-sm hover:bg-primary/10 transition-colors">
+                      <button
+                        type="submit"
+                        class="hover:bg-primary/10 w-full px-4 py-2 text-left text-sm transition-colors"
+                      >
                         Log out
                       </button>
                     </form>
@@ -109,7 +124,7 @@
 
     {#if data.user && !data.user?.verified}
       <Alert
-        class="border-destructive/20 bg-destructive/10 rounded-none border-x-0 border-t-0 backdrop-blur-sm relative z-40"
+        class="border-destructive/20 bg-destructive/10 relative z-40 rounded-none border-x-0 border-t-0 backdrop-blur-sm"
       >
         <Mail class="ml-4 h-4 w-4 flex-shrink-0" />
         <AlertDescription
