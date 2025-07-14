@@ -3,6 +3,13 @@
   import { Avatar, AvatarFallback } from "$lib/components/ui/avatar";
   import { Alert, AlertDescription } from "$lib/components/ui/alert";
   import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "$lib/components/ui/dropdown-menu";
+  import {
     Mail,
     Leaf,
     LogIn,
@@ -15,19 +22,6 @@
   } from "@lucide/svelte";
 
   let { data } = $props();
-  let showDropdown = $state(false);
-  let dropdownRef = $state() as HTMLElement;
-
-  $effect(() => {
-    const handleClickOutside = (event: any) => {
-      if (showDropdown && dropdownRef && !dropdownRef.contains(event.target)) {
-        showDropdown = false;
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  });
 </script>
 
 <svelte:head>
@@ -60,58 +54,48 @@
           </div>
 
           {#if data.user}
-            <div class="relative" bind:this={dropdownRef}>
-              <button
-                class="flex items-center space-x-3 focus:outline-none"
-                onclick={() => (showDropdown = !showDropdown)}
-              >
-                <Avatar class="h-8 w-8">
-                  <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
-                </Avatar>
-                <div class="hidden sm:block">
-                  {#if data.user.displayName}
-                    <p class="text-sm font-medium">{data.user.displayName}</p>
-                  {/if}
-                  <p class="text-muted-foreground text-xs">@{data.user.name}</p>
-                </div>
-              </button>
-
-              {#if showDropdown}
-                <div
-                  class="bg-background/95 border-border/40 absolute right-0 z-50 mt-2 w-64 rounded-lg border shadow-lg backdrop-blur"
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <button
+                  class="flex items-center space-x-3 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  <div class="border-border/40 border-b p-4">
-                    <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
-                    <p class="text-muted-foreground text-xs">
-                      {data.user.email || `@${data.user.name}`}
-                    </p>
+                  <Avatar class="h-8 w-8">
+                    <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
+                  </Avatar>
+                  <div class="hidden text-left sm:block">
+                    {#if data.user.displayName}
+                      <p class="text-sm font-medium">{data.user.displayName}</p>
+                    {/if}
+                    <p class="text-muted-foreground text-xs">@{data.user.name}</p>
                   </div>
-
-                  <div class="py-2">
-                    <a
-                      href="/settings"
-                      class="hover:bg-primary/10 flex items-center px-4 py-2 text-sm transition-colors"
-                    >
-                      Settings
-                    </a>
-                    <a
-                      href="/help"
-                      class="hover:bg-primary/10 flex items-center px-4 py-2 text-sm transition-colors"
-                    >
-                      Get help
-                    </a>
-                    <form action="/logout" method="POST" class="w-full">
-                      <button
-                        type="submit"
-                        class="hover:bg-primary/10 w-full px-4 py-2 text-left text-sm transition-colors"
-                      >
-                        Log out
-                      </button>
-                    </form>
-                  </div>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent class="w-64" align="end">
+                <div class="border-border/40 border-b p-4">
+                  <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
+                  <p class="text-muted-foreground text-xs">
+                    {data.user.email || `@${data.user.name}`}
+                  </p>
                 </div>
-              {/if}
-            </div>
+                <div class="py-2">
+                  <DropdownMenuItem>
+                    <a href="/settings" class="w-full block">Settings</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/help" class="w-full block">Get help</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <form action="/logout" method="POST" class="w-full">
+                    <button
+                      type="submit"
+                      class="hover:bg-accent relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors"
+                    >
+                      Log out
+                    </button>
+                  </form>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
           {:else}
             <Button variant="link" href="/sign-in">
               <LogIn class="mr-2" />
@@ -183,7 +167,7 @@
         </p>
         <div class="relative z-10">
           <Button
-            class="border-primary/50  group/btn mt-1 border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            class="border-primary/50 group/btn mt-1 border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
             variant="default"
             href="/explore/problems"
           >
@@ -230,7 +214,7 @@
         </p>
         <div class="relative z-10">
           <Button
-            class="border-primary/50  group/btn mt-1 border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            class="border-primary/50 group/btn mt-1 border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
             variant="default"
             href="/explore/teams"
           >
