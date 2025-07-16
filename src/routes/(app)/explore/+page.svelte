@@ -29,7 +29,7 @@
 </svelte:head>
 
 <div
-  class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col bg-gradient-to-br"
+  class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col bg-gradient-to-br overflow-x-hidden"
 >
   <div class="bg-primary/5 pointer-events-none absolute inset-0 -z-10">
     <div class="bg-primary/10 absolute top-1/3 left-1/4 h-96 w-96 rounded-full blur-3xl"></div>
@@ -54,48 +54,50 @@
           </div>
 
           {#if data.user}
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <button
-                  class="flex items-center space-x-3 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <Avatar class="h-8 w-8">
-                    <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
-                  </Avatar>
-                  <div class="hidden text-left sm:block">
-                    {#if data.user.displayName}
-                      <p class="text-sm font-medium">{data.user.displayName}</p>
-                    {/if}
-                    <p class="text-muted-foreground text-xs">@{data.user.name}</p>
+            <div class="relative">
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <div
+                    class="flex items-center space-x-3 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer"
+                  >
+                    <Avatar class="h-8 w-8">
+                      <AvatarFallback class="text-xs">{data.user.name[0].toUpperCase()}</AvatarFallback>
+                    </Avatar>
+                    <div class="hidden text-left sm:block">
+                      {#if data.user.displayName}
+                        <p class="text-sm font-medium">{data.user.displayName}</p>
+                      {/if}
+                      <p class="text-muted-foreground text-xs">@{data.user.name}</p>
+                    </div>
                   </div>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent class="w-64" align="end">
-                <div class="border-border/40 border-b p-4">
-                  <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
-                  <p class="text-muted-foreground text-xs">
-                    {data.user.email || `@${data.user.name}`}
-                  </p>
-                </div>
-                <div class="py-2">
-                  <DropdownMenuItem>
-                    <a href="/settings" class="w-full block">Settings</a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <a href="/help" class="w-full block">Get help</a>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <form action="/logout" method="POST" class="w-full">
-                    <button
-                      type="submit"
-                      class="hover:bg-accent relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors"
-                    >
-                      Log out
-                    </button>
-                  </form>
-                </div>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent class="w-64 sm:w-64 w-screen max-w-xs mr-2">
+                  <div class="border-border/40 border-b p-4">
+                    <p class="text-sm font-medium">{data.user.displayName || data.user.name}</p>
+                    <p class="text-muted-foreground text-xs">
+                      {data.user.email || `@${data.user.name}`}
+                    </p>
+                  </div>
+                  <div class="py-2">
+                    <DropdownMenuItem>
+                      <a href="/settings" class="w-full block">Settings</a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <a href="/help" class="w-full block">Get help</a>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <form action="/logout" method="POST" class="w-full">
+                      <button
+                        type="submit"
+                        class="hover:bg-primary hover:text-background relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors"
+                      >
+                        Log out
+                      </button>
+                    </form>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           {:else}
             <Button variant="link" href="/sign-in">
               <LogIn class="mr-2" />
@@ -130,7 +132,7 @@
     {/if}
   </header>
 
-  <div class="container mx-auto flex-grow px-4 py-8 sm:py-16">
+  <div class="container mx-auto flex-grow px-4 py-6 sm:py-8 md:py-16">
     <div class="grid grid-cols-1 gap-8 sm:mt-10 sm:gap-16 md:grid-cols-2">
       <div
         class="group relative flex flex-col justify-center space-y-6 overflow-visible p-4 text-center md:p-6 md:text-left"
