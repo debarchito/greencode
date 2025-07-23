@@ -30,7 +30,7 @@
 </svelte:head>
 
 <div
-  class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col bg-gradient-to-br overflow-x-hidden"
+  class="from-background via-background to-primary/5 relative flex min-h-screen w-full flex-col overflow-x-hidden bg-gradient-to-br"
 >
   <div class="bg-primary/5 pointer-events-none absolute inset-0 -z-10">
     <div class="bg-primary/10 absolute top-1/3 left-1/4 h-96 w-96 rounded-full blur-3xl"></div>
@@ -53,10 +53,10 @@
               GreenCode
             </span>
           </div>
-            <Button variant="outline" href="/dashboard">
-              <LayoutDashboard/>
-              <span class="pt-[0.15rem]">Dashboard</span>
-            </Button>
+          <Button variant="outline" href="/dashboard">
+            <LayoutDashboard />
+            <span class="pt-[0.15rem]">Dashboard</span>
+          </Button>
         </div>
       </div>
     </nav>
