@@ -5,7 +5,7 @@
   import { Input } from "$lib/components/ui/input";
   import { Select, SelectContent, SelectItem, SelectTrigger } from "$lib/components/ui/select";
   import { Separator } from "$lib/components/ui/separator";
-  import { Clock, Users, Trophy, Search, Filter, Star, Calendar, MapPin, Award } from "@lucide/svelte";
+  import { Clock, Users, Trophy, Search, Filter, Star, Calendar, MapPin, Award, Code2, Zap, Target } from "@lucide/svelte";
   
   interface ProblemStatement {
     id: string;
@@ -172,34 +172,176 @@
   };
 </script>
 
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .floating-icon {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-icon:nth-child(2) {
+    animation-delay: 2s;
+  }
+  
+  .floating-icon:nth-child(3) {
+    animation-delay: 4s;
+  }
+    
+  .hero-bg {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary) / 0.1) 0%,
+      hsl(var(--accent) / 0.05) 25%,
+      hsl(var(--chart-2) / 0.08) 50%,
+      hsl(var(--chart-4) / 0.06) 75%,
+      hsl(var(--chart-1) / 0.1) 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  .glow-card {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  .gradient-border {
+    background: linear-gradient(90deg, 
+      hsl(var(--primary)), 
+      hsl(var(--accent)), 
+      hsl(var(--chart-2)), 
+      hsl(var(--chart-4)));
+  }
+  
+  .stat-card {
+    background: hsl(var(--card) / 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+  
+  .stat-card:hover {
+    background: hsl(var(--card) / 0.8);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+  
+  .event-badge {
+    background: hsl(var(--card) / 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+</style>
+
 <div class="min-h-screen bg-background">
-  <!-- Header Section -->
-  <div class="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/5 border-b">
-    <div class="container mx-auto px-4 py-12">
-      <div class="text-center space-y-4">
-        <div class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-          <Trophy class="w-4 h-4 text-primary" />
-          <span class="text-sm font-medium text-primary">HackFest 2025</span>
+  <!-- Enhanced Header Section -->
+  <div class="hero-bg border-b overflow-hidden relative">
+    <!-- Floating Background Icons -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="floating-icon absolute top-20 left-[10%] opacity-10">
+        <Code2 class="w-16 h-16 text-primary" />
+      </div>
+      <div class="floating-icon absolute top-32 right-[15%] opacity-10">
+        <Zap class="w-12 h-12 text-accent" />
+      </div>
+      <div class="floating-icon absolute bottom-20 left-[20%] opacity-10">
+        <Target class="w-14 h-14 text-chart-2" />
+      </div>
+      <div class="floating-icon absolute top-40 left-[70%] opacity-10">
+        <Trophy class="w-10 h-10 text-chart-4" />
+      </div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-16 relative z-10">
+      <div class="text-center space-y-8 max-w-4xl mx-auto">
+        <!-- Event Badge with Glow -->
+        <div class="inline-flex items-center gap-3 event-badge px-6 py-3 rounded-full glow-card">
+          <Trophy class="w-5 h-5 text-chart-4" />
+          <span class="font-semibold text-lg text-primary">
+            HackFest 2025
+          </span>
+          <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          <span class="text-sm text-primary font-medium">Live</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
-          Problem Statements
-        </h1>
-        <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Choose your challenge and build innovative solutions that can change the world. 
+        
+        <!-- Main Title with Gradient -->
+        <div class="space-y-4">
+          <h1 class="text-5xl md:text-7xl font-black tracking-tight text-foreground leading-none">
+            Problem Statements
+          </h1>
+          <div class="relative">
+            <h2 class="text-xl md:text-2xl text-muted-foreground font-light">
+              Where Innovation Meets Opportunity
+            </h2>
+            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+          </div>
+        </div>
+        
+        <!-- Enhanced Description -->
+        <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          Choose your challenge and build innovative solutions that can 
+          <span class="font-semibold text-primary">change the world</span>. 
           Pick a problem statement that excites you and start your journey to victory.
         </p>
-        <div class="flex items-center justify-center gap-6 text-sm text-muted-foreground">
-          <div class="flex items-center gap-2">
-            <Calendar class="w-4 h-4" />
-            <span>Registration Deadline: Aug 15, 2025</span>
+        
+        <!-- Enhanced Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+          <div class="stat-card rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+            <div class="flex items-center justify-center gap-3 mb-3">
+              <Calendar class="w-6 h-6 text-chart-2" />
+              <span class="text-lg font-semibold text-chart-2">Deadline</span>
+            </div>
+            <div class="text-2xl font-bold text-foreground">Aug 15, 2025</div>
+            <div class="text-sm text-muted-foreground">Registration closes</div>
           </div>
-          <div class="flex items-center gap-2">
-            <Users class="w-4 h-4" />
-            <span>{problemStatements.reduce((acc, p) => acc + p.registeredTeams, 0)} Teams Registered</span>
+          
+          <div class="stat-card rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+            <div class="flex items-center justify-center gap-3 mb-3">
+              <Users class="w-6 h-6 text-primary" />
+              <span class="text-lg font-semibold text-primary">Teams</span>
+            </div>
+            <div class="text-2xl font-bold text-foreground">
+              {problemStatements.reduce((acc, p) => acc + p.registeredTeams, 0)}
+            </div>
+            <div class="text-sm text-muted-foreground">Already registered</div>
           </div>
+          
+          <div class="stat-card rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+            <div class="flex items-center justify-center gap-3 mb-3">
+              <Trophy class="w-6 h-6 text-chart-4" />
+              <span class="text-lg font-semibold text-chart-4">Prize Pool</span>
+            </div>
+            <div class="text-2xl font-bold text-foreground">
+              ${problemStatements.reduce((acc, p) => acc + parseInt(p.prize.replace(/[$,]/g, '')), 0).toLocaleString()}
+            </div>
+            <div class="text-sm text-muted-foreground">Total rewards</div>
+          </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="pt-8">
+          <Button 
+            size="lg" 
+            class="cta-button hover:shadow-xl text-primary-foreground border-0 px-8 py-4 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
+            <Zap class="w-5 h-5 mr-2" />
+            Start Your Journey
+          </Button>
         </div>
       </div>
     </div>
+    
+    <!-- Decorative Bottom Border -->
+    <div class="absolute bottom-0 left-0 right-0 h-1 gradient-border"></div>
   </div>
 
   <div class="container mx-auto px-4 py-8">
