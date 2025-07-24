@@ -3,6 +3,7 @@
 @import "@fontsource/poppins";
 @import "@fontsource/merriweather";
 @import "@fontsource/jetbrains-mono";
+@import "@fontsource/pixelify-sans";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -177,4 +178,8 @@ body {
 
 @utility font-jbm {
   font-family: "JetBrains Mono", monospace;
+}
+
+@utility font-ps {
+  font-family: "Pixelify Sans", sans-serif;
 }

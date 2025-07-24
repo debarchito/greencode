@@ -262,14 +262,10 @@
           </div>
 
           <h1
-            class="from-foreground via-primary to-accent animate-shimmer font-jbm bg-gradient-to-r bg-clip-text text-5xl leading-tight font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
+            class="from-foreground via-primary to-accent animate-shimmer bg-gradient-to-r bg-clip-text text-5xl leading-tight font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            build for a
-            <span
-              class="from-accent to-primary block animate-pulse bg-gradient-to-r bg-clip-text text-transparent"
-            >
-              better tomorrow
-            </span>
+            build for a better
+            <span class="font-ps">tomorrow</span>
           </h1>
 
           <p class="text-muted-foreground max-w-2xl text-xl leading-relaxed opacity-90 md:text-2xl">

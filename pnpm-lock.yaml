@@ -36,6 +36,9 @@ importers:
       '@eslint/js':
         specifier: ^9.31.0
         version: 9.31.0
+      '@fontsource/pixelify-sans':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@internationalized/date':
         specifier: ^3.8.2
         version: 3.8.2
@@ -421,6 +424,9 @@ packages:
 
   '@fontsource/merriweather@5.2.9':
     resolution: {integrity: sha512-amd5Wp7BM5U0HE/FUgsJmf/dvfqSKYf55HrxR1tMlpT3BqQmVZHB9RJDBpNqqf3/yF6fkryCbx5H9fEMa4mY3g==}
+
+  '@fontsource/pixelify-sans@5.2.6':
+    resolution: {integrity: sha512-OvHb2k35TJPy75LRyBi1EUG8hkj9BBW64QpUS+b8IBnbTDN/XOg1BDVjXYEbWptLZfHsRnwu5FB7P97qHmJjNg==}
 
   '@fontsource/poppins@5.2.6':
     resolution: {integrity: sha512-NFr0121+vWCfzLDVvSZOzwAjRUaNj6QHA9gtUh/KHHoWf1Qn23EkwVFs63XZ6UtF5K1b3UNmCx77YEMGgV7BOQ==}
@@ -2933,6 +2939,8 @@ snapshots:
   '@fontsource/jetbrains-mono@5.2.6': {}
 
   '@fontsource/merriweather@5.2.9': {}
+
+  '@fontsource/pixelify-sans@5.2.6': {}
 
   '@fontsource/poppins@5.2.6': {}
 
