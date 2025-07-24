@@ -223,15 +223,15 @@
 
   <div class="pointer-events-none absolute inset-0 z-5">
     {#each floatingParticles as particle, i (i)}
-      <div class={particle.class}></div>
+      <div class="{particle.class} font-ps"></div>
     {/each}
 
     {#each floatingShapes as shape, i (i)}
-      <div class={shape.class}></div>
+      <div class="{shape.class} font-ps"></div>
     {/each}
 
     {#each codeSymbols as symbol, i (i)}
-      <div class={symbol.class}>
+      <div class="{symbol.class} font-ps">
         {symbol.symbol}
       </div>
     {/each}
@@ -240,16 +240,13 @@
   <section class="relative flex min-h-screen items-center py-20">
     <div class="absolute inset-0 overflow-hidden">
       <div
-        class="from-primary/10 via-accent/5 to-secondary/10 absolute -top-1/2 -left-1/2 h-full w-full rotate-12 animate-pulse bg-gradient-to-r opacity-30 blur-3xl"
-      ></div>
-      <div
-        class="from-primary/5 via-accent/10 to-secondary/5 absolute -right-1/2 -bottom-1/2 h-full w-full -rotate-12 animate-pulse bg-gradient-to-l opacity-40 blur-3xl"
+        class="from-accent/20 via-accent/10 to-accent/5 absolute -top-1/2 -left-1/2 h-full w-full animate-pulse bg-gradient-to-br opacity-40 blur-3xl"
       ></div>
     </div>
 
     <div class="relative z-10 container mx-auto px-4">
       <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 md:grid-cols-2">
-        <div class="space-y-8">
+        <div class="ml-4 space-y-8 md:ml-0">
           <div class="flex items-center space-x-3">
             <div class="bg-primary flex h-10 w-10 items-center justify-center rounded-xl shadow-lg">
               <Lucide.Leaf class="text-primary-foreground h-6 w-6" />
@@ -316,8 +313,22 @@
       </div>
     </div>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce">
-      <Lucide.ChevronDown class="text-muted-foreground h-6 w-6" />
+    <div class="text-primary absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce">
+      <svg
+        version="1.1"
+        width="30"
+        height="15"
+        viewBox="0 0 5 3"
+        xmlns="http://www.w3.org/2000/svg"
+        shape-rendering="crispEdges"
+        fill="currentColor"
+      >
+        <rect x="0" y="0" width="1" height="1" />
+        <rect x="4" y="0" width="1" height="1" />
+        <rect x="1" y="1" width="1" height="1" />
+        <rect x="3" y="1" width="1" height="1" />
+        <rect x="2" y="2" width="1" height="1" />
+      </svg>
     </div>
   </section>
 
@@ -332,20 +343,20 @@
         <h1
           class="from-foreground via-primary to-accent animate-shimmer relative bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-6xl"
         >
-          Explore problem statements.
+          explore problem statements.
         </h1>
         <p class="text-muted-foreground relative mx-auto max-w-lg text-lg md:mx-0 md:text-xl">
-          Explore the problem statements, choose one and build something impactful.
+          explore the problem statements, choose one and build something impactful.
         </p>
         <Button
-          class="group border-border/50 bg-background/50 text-foreground hover:bg-background/90 hover:border-primary/50 focus:ring-primary/50 relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-auto sm:text-base"
+          class="group border-border/50 bg-background/50 text-foreground hover:bg-background hover:text-foreground hover:border-primary focus:ring-primary/50 shadow-primary/20 relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-auto sm:text-base"
           variant="default"
           href="/explore/problems"
         >
-          <span>View problem statements</span>
+          <span>view problem statements</span>
           <Lucide.ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
           <div
-            class="from-primary/10 to-primary/10 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
+            class="from-primary/20 to-primary/30 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
           ></div>
         </Button>
       </div>
@@ -360,32 +371,32 @@
         <h1
           class="from-foreground via-primary to-accent animate-shimmer relative mt-15 bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:mt-0 md:text-6xl"
         >
-          Explore teams.
+          explore teams.
         </h1>
         <p class="text-muted-foreground relative mx-auto max-w-lg text-lg md:mx-0 md:text-xl">
-          Find teams that are building something impactful, and contribute to the cause.
+          find teams that are building something impactful, and contribute to the cause.
         </p>
         <div class="relative z-10 flex flex-col gap-2 sm:flex-row">
           <Button
-            class="group border-border/50 bg-background/50 text-foreground hover:bg-background/90 hover:border-primary/50 focus:ring-primary/50 relative inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-1/2 sm:text-base"
+            class="group border-border/50 bg-background/50 text-foreground hover:bg-background hover:text-foreground hover:border-primary focus:ring-primary/50 relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-1/2 sm:text-base"
             variant="default"
             href="/explore/teams"
           >
-            <span>View teams</span>
+            <span>view teams</span>
             <Lucide.Users class="h-4 w-4 transition-transform group-hover:translate-x-1" />
             <div
-              class="from-primary/10 to-primary/10 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
+              class="from-primary/20 to-primary/30 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
             ></div>
           </Button>
           <Button
-            class="group border-border/50 bg-background/50 text-foreground hover:bg-background/90 hover:border-primary/50 focus:ring-primary/50 relative inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-1/2 sm:text-base"
+            class="group border-border/50 bg-background/50 text-foreground hover:bg-background hover:text-foreground hover:border-primary focus:ring-primary/50 relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-1/2 sm:text-base"
             variant="default"
             href="/create/team"
           >
-            <span>Create a team</span>
+            <span>create a team</span>
             <Lucide.Plus class="h-4 w-4 transition-transform group-hover:translate-x-1" />
             <div
-              class="from-primary/10 to-primary/10 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
+              class="from-primary/20 to-primary/30 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
             ></div>
           </Button>
         </div>
