@@ -15,31 +15,6 @@
     <div class="bg-primary/10 absolute right-1/4 bottom-1/3 h-96 w-96 rounded-full blur-3xl"></div>
   </div>
 
-  <header class="sticky top-0 z-50 w-full">
-    <nav
-      class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 relative z-50 border-b backdrop-blur"
-    >
-      <div class="container mx-auto py-4">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <div class="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
-              <Lucide.Leaf class="text-primary-foreground h-5 w-5" />
-            </div>
-            <span
-              class="from-primary to-accent bg-gradient-to-r bg-clip-text text-xl font-bold text-transparent"
-            >
-              GreenCode
-            </span>
-          </div>
-          <Button variant="outline" href="/dashboard">
-            <Lucide.LayoutDashboard />
-            <span class="pt-[0.15rem]">Dashboard</span>
-          </Button>
-        </div>
-      </div>
-    </nav>
-  </header>
-
   <div class="container mx-auto flex-grow px-4 py-6 sm:py-8 md:py-16">
     <div class="grid grid-cols-1 gap-8 sm:mt-10 sm:gap-16 md:grid-cols-2">
       <div
@@ -48,7 +23,6 @@
         <div
           class="bg-primary/10 absolute inset-0 rounded-2xl opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
         ></div>
-
         <div class="absolute inset-0 overflow-hidden rounded-2xl">
           <div
             class="animate-float-slow border-primary/30 absolute -top-10 left-10 h-20 w-20 rounded-full border opacity-70"
@@ -63,7 +37,6 @@
             class="animate-bounce-slow bg-primary/5 absolute top-1/3 right-1/3 h-8 w-8 rounded-full opacity-90"
           ></div>
         </div>
-
         <h1
           class="from-foreground via-primary to-accent animate-shimmer relative bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-6xl"
         >
@@ -72,18 +45,17 @@
         <p class="text-muted-foreground relative mx-auto max-w-lg text-lg md:mx-0 md:text-xl">
           Explore the problem statements, choose one and build something impactful.
         </p>
-        <div class="relative z-10">
-          <Button
-            class="border-primary/50 group/btn mt-1 border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            variant="default"
-            href="/explore/problems"
-          >
-            View problem statements
-            <Lucide.ArrowBigRight
-              class="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1"
-            />
-          </Button>
-        </div>
+        <Button
+          class="group border-border/50 bg-background/50 text-foreground hover:bg-background/90 hover:border-primary/50 focus:ring-primary/50 relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-auto sm:text-base"
+          variant="default"
+          href="/explore/problems"
+        >
+          <span>View problem statements</span>
+          <Lucide.ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <div
+            class="from-primary/10 to-primary/10 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
+          ></div>
+        </Button>
       </div>
 
       <div
@@ -92,7 +64,6 @@
         <div
           class="bg-primary/10 absolute inset-0 rounded-2xl opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
         ></div>
-
         <div class="absolute inset-0 overflow-hidden rounded-2xl">
           <div
             class="animate-float-medium border-primary/30 absolute right-10 -bottom-10 h-20 w-20 rounded-full border opacity-70"
@@ -109,115 +80,170 @@
         </div>
 
         <h1
-          class="from-foreground via-primary to-accent animate-shimmer relative bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-6xl"
+          class="from-foreground via-primary to-accent animate-shimmer relative mt-15 bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:mt-0 md:text-6xl"
         >
           Explore teams.
         </h1>
         <p class="text-muted-foreground relative mx-auto max-w-lg text-lg md:mx-0 md:text-xl">
-          Find teams that are building something impactful.
+          Find teams that are building something impactful, and contribute to the cause.
         </p>
-        <div class="relative z-10">
+        <div class="relative z-10 flex flex-col gap-2 sm:flex-row">
           <Button
-            class="border-primary/50 group/btn mt-1 border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            class="group border-border/50 bg-background/50 text-foreground hover:bg-background/90 hover:border-primary/50 focus:ring-primary/50 relative inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-1/2 sm:text-base"
             variant="default"
             href="/explore/teams"
           >
-            View teams
-            <Lucide.Users class="transition-transform duration-300 group-hover/btn:translate-x-1" />
+            <span>View teams</span>
+            <Lucide.Users class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div
+              class="from-primary/10 to-primary/10 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
+            ></div>
           </Button>
           <Button
-            class="border-primary/50 group/btn mt-1 ml-1 rounded-lg border backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            class="group border-border/50 bg-background/50 text-foreground hover:bg-background/90 hover:border-primary/50 focus:ring-primary/50 relative inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm transition-all focus:ring-2 focus:outline-none active:scale-95 sm:w-1/2 sm:text-base"
             variant="default"
             href="/create/team"
           >
-            Create a team
-            <Lucide.Plus class="transition-transform duration-300 group-hover/btn:translate-x-1" />
+            <span>Create a team</span>
+            <Lucide.Plus class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div
+              class="from-primary/10 to-primary/10 absolute -inset-px rounded-xl bg-gradient-to-r opacity-0 blur transition duration-300 group-hover:opacity-100"
+            ></div>
           </Button>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="border-border/40 bg-background/80 mt-12 border-t py-10 backdrop-blur-sm">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 gap-10 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
-        <div class="space-y-4">
-          <div class="flex items-center space-x-2">
-            <div class="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
-              <Lucide.Leaf class="text-primary-foreground h-5 w-5" />
+  <footer class="border-border/10 bg-background/95 mt-16 border-t backdrop-blur-md">
+    <div class="container mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div class="space-y-4 lg:space-y-6">
+          <div class="flex items-center space-x-3">
+            <div class="bg-primary flex h-10 w-10 items-center justify-center rounded-xl shadow-lg">
+              <Lucide.Leaf class="text-primary-foreground h-6 w-6" />
             </div>
             <span
-              class="from-primary to-accent bg-gradient-to-r bg-clip-text text-xl font-bold text-transparent"
+              class="from-primary to-accent bg-gradient-to-r bg-clip-text text-xl font-bold text-transparent lg:text-2xl"
             >
               GreenCode
             </span>
           </div>
-          <p class="text-muted-foreground/80 text-sm">
-            Building a greener future through code and collaboration.
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-base font-medium">Resources</h3>
-          <ul class="text-muted-foreground/70 space-y-2 text-sm">
-            <li>
-              <a href="/explore/problems" class="hover:text-primary transition-colors">Problems</a>
-            </li>
-            <li>
-              <a href="/explore/teams" class="hover:text-primary transition-colors">Teams</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-base font-medium">Company</h3>
-          <ul class="text-muted-foreground/70 space-y-2 text-sm">
-            <li><a href="/about" class="hover:text-primary transition-colors">About</a></li>
-            <li><a href="/faq" class="hover:text-primary transition-colors">FAQ</a></li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-base font-medium">Connect</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">Quote goes here!</p>
           <div class="flex space-x-4">
             <a
               href="https://github.com/debarchito/greencode"
-              class="text-muted-foreground/70 hover:text-primary transition-colors"
-              aria-label="GitHub"
+              class="text-muted-foreground hover:text-primary hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-all duration-200"
+              aria-label="Follow us on GitHub"
             >
               <Lucide.Github class="h-5 w-5" />
             </a>
             <a
               href="https://twitter.com"
-              class="text-muted-foreground/70 hover:text-primary transition-colors"
-              aria-label="Twitter"
+              class="text-muted-foreground hover:text-primary hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-all duration-200"
+              aria-label="Follow us on Twitter"
             >
               <Lucide.Twitter class="h-5 w-5" />
             </a>
             <a
               href="https://linkedin.com"
-              class="text-muted-foreground/70 hover:text-primary transition-colors"
-              aria-label="LinkedIn"
+              class="text-muted-foreground hover:text-primary hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-all duration-200"
+              aria-label="Connect with us on LinkedIn"
             >
               <Lucide.Linkedin class="h-5 w-5" />
             </a>
-          </div>
-          <p class="text-muted-foreground/80 mt-5 text-sm">
-            Contact us at <a href="mailto:info@greencode.com" class="text-primary hover:underline">
-              info@greencode.com
+            <a
+              href="mailto:"
+              class="text-muted-foreground hover:text-primary hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-all duration-200"
+              aria-label="Connect with us on LinkedIn"
+            >
+              <Lucide.Mail class="h-5 w-5" />
             </a>
-          </p>
+          </div>
+        </div>
+
+        <div class="space-y-4 lg:space-y-6">
+          <h3 class="text-primary text-base font-semibold">Platform</h3>
+          <nav class="space-y-3">
+            <a
+              href="/explore/problems"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              Problem Statements
+            </a>
+            <a
+              href="/explore/teams"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              Explore teams
+            </a>
+            <a
+              href="/create/team"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              Create Team
+            </a>
+            <a
+              href="/leaderboard"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              Leaderboard
+            </a>
+          </nav>
+        </div>
+
+        <div class="space-y-4 lg:space-y-6">
+          <h3 class="text-primary text-base font-semibold">Company</h3>
+          <nav class="space-y-3">
+            <a
+              href="/about"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              About Us
+            </a>
+            <a
+              href="/press"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              Press Kit
+            </a>
+          </nav>
+        </div>
+
+        <div class="space-y-4 lg:space-y-6">
+          <h3 class="text-primary text-base font-semibold">Support</h3>
+          <nav class="space-y-3">
+            <a
+              href="/faq"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              FAQ
+            </a>
+            <a
+              href="/contact"
+              class="text-muted-foreground hover:text-primary block text-sm transition-colors duration-200"
+            >
+              Contact Support
+            </a>
+          </nav>
         </div>
       </div>
 
       <div
-        class="border-border/20 text-muted-foreground/60 mt-10 flex flex-col items-center space-y-4 border-t pt-6 text-xs sm:flex-row sm:justify-between sm:space-y-0"
+        class="border-border/20 text-muted-foreground mt-12 flex flex-col items-center justify-between space-y-4 border-t pt-8 text-sm md:flex-row md:space-y-0"
       >
-        <p>© 2025 GreenCode. All rights reserved.</p>
-        <div class="flex space-x-6">
-          <a href="/privacy" class="hover:text-primary transition-colors">Privacy Policy</a>
-          <a href="/terms" class="hover:text-primary transition-colors">Terms of Service</a>
-        </div>
+        <p class="flex items-center space-x-1 text-sm">
+          Built with <Lucide.Heart class="ml-1 h-4 w-4 text-pink-400" /> in
+          <a href="https://svelte.dev/docs/kit/introduction" class="ml-1 underline">SvelteKit</a>
+        </p>
+        <nav class="flex flex-wrap items-center space-x-6 text-xs">
+          <a href="/privacy" class="hover:text-primary transition-colors duration-200">
+            Privacy Policy
+          </a>
+          <a href="/terms" class="hover:text-primary transition-colors duration-200">
+            Terms of Service
+          </a>
+        </nav>
       </div>
     </div>
   </footer>
