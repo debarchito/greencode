@@ -1,4 +1,5 @@
 <script lang="ts">
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Lucide from "@lucide/svelte";
 
@@ -258,11 +259,27 @@
             </span>
           </div>
 
-          <h1
-            class="from-foreground via-primary to-accent animate-shimmer bg-gradient-to-r bg-clip-text text-5xl leading-tight font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            build for a better
-            <span class="font-ps">tomorrow</span>
+          <h1 class="text-5xl leading-tight font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+            <span
+              class="from-foreground via-primary to-accent animate-shimmer bg-gradient-to-r bg-clip-text text-transparent"
+            >
+              build for a better
+            </span>
+
+            <Tooltip.Provider>
+              <Tooltip.Root>
+                <Tooltip.Trigger>
+                  <span
+                    class="font-ps text-primary decoration-accent group relative underline decoration-wavy underline-offset-8"
+                  >
+                    tmrw
+                  </span>
+                </Tooltip.Trigger>
+                <Tooltip.Content class="font-ps text-lg" side="bottom">
+                  to make real wonders
+                </Tooltip.Content>
+              </Tooltip.Root>
+            </Tooltip.Provider>
           </h1>
 
           <p class="text-muted-foreground max-w-2xl text-xl leading-relaxed opacity-90 md:text-2xl">
