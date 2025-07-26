@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "@fontsource/poppins";
+@import "@fontsource/maple-mono";
 @import "@fontsource/merriweather";
-@import "@fontsource/jetbrains-mono";
 @import "@fontsource/pixelify-sans";
 
 @custom-variant dark (&:is(.dark *));
@@ -42,15 +42,50 @@
   --sidebar-ring: oklch(0.625 0.1772 140.4448);
   --font-sans: Poppins, sans-serif;
   --font-serif: Merriweather, serif;
-  --font-mono: JetBrains Mono, monospace;
+  --font-mono: Maple Mono, monospace;
   --radius: 0.35rem;
   --shadow-2xs: 0px 4px 6px 0px hsl(240 30% 25% / 0.06);
   --shadow-xs: 0px 4px 6px 0px hsl(240 30% 25% / 0.06);
-  --shadow-sm: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(240 30% 25% / 0.12);
-  --shadow: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(240 30% 25% / 0.12);
-  --shadow-md: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 2px 4px -1px hsl(240 30% 25% / 0.12);
-  --shadow-lg: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 4px 6px -1px hsl(240 30% 25% / 0.12);
-  --shadow-xl: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 8px 10px -1px hsl(240 30% 25% / 0.12);
+  --shadow-sm:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow-md:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 2px 4px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow-lg:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 4px 6px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow-xl:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 8px 10px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
   --shadow-2xl: 0px 4px 6px 0px hsl(240 30% 25% / 0.3);
   --tracking-normal: normal;
   --spacing: 0.25rem;
@@ -95,11 +130,46 @@
   --radius: 0.35rem;
   --shadow-2xs: 0px 4px 6px 0px hsl(240 30% 25% / 0.06);
   --shadow-xs: 0px 4px 6px 0px hsl(240 30% 25% / 0.06);
-  --shadow-sm: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(240 30% 25% / 0.12);
-  --shadow: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(240 30% 25% / 0.12);
-  --shadow-md: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 2px 4px -1px hsl(240 30% 25% / 0.12);
-  --shadow-lg: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 4px 6px -1px hsl(240 30% 25% / 0.12);
-  --shadow-xl: 0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 8px 10px -1px hsl(240 30% 25% / 0.12);
+  --shadow-sm:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 1px 2px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow-md:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 2px 4px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow-lg:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 4px 6px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
+  --shadow-xl:
+    0px 4px 6px 0px hsl(240 30% 25% / 0.12), 0px 8px 10px -1px hsl(
+    240
+    30%
+    25%
+    /
+    0.12
+  );
   --shadow-2xl: 0px 4px 6px 0px hsl(240 30% 25% / 0.3);
 }
 
@@ -174,10 +244,6 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@utility font-jbm {
-  font-family: "JetBrains Mono", monospace;
 }
 
 @utility font-ps {
