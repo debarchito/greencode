@@ -288,6 +288,7 @@
         </div>
 
         <div class="flex justify-center md:justify-center">
+          <!-- From Uiverse.io by BlackisPlay -->
           <div id="ghost" class="scale-90 md:scale-100">
             <div id="red">
               <div id="pupil"></div>
