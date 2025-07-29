@@ -33,3 +33,6 @@ cert
 
 # just
 justfile
+
+# Deno Deploy
+.deno-deploy
