@@ -436,7 +436,9 @@
               greencode
             </span>
           </div>
-          <p class="text-muted-foreground text-sm leading-relaxed">Quote goes here!</p>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            innovation for sustainable natural resource management
+          </p>
           <div class="flex space-x-4">
             {#each socialLinks as link (link)}
               <a
@@ -472,7 +474,11 @@
       >
         <p class="flex items-center space-x-1 text-sm select-none">
           Built with <Lucide.Heart class="ml-1 h-4 w-4 text-pink-400" /> in
-          <a href="https://svelte.dev/docs/kit/introduction" class="ml-1 underline">SvelteKit</a>
+          <a href="https://svelte.dev/docs/kit/introduction" class="mr-1 ml-1 underline">
+            SvelteKit
+          </a>
+          on
+          <a href="https://deno.com/deploy" class="ml-1 underline">Deno Deploy</a>
         </p>
         <nav class="flex flex-wrap items-center space-x-6 text-xs">
           {#each bottomLinks as link (link)}
