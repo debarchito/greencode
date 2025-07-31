@@ -75,14 +75,12 @@
 <section
   class="from-background via-muted/20 to-primary/5 relative overflow-hidden bg-gradient-to-br px-4 py-16 sm:px-6 lg:px-8"
 >
-  <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-5">
     <div
       class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_var(--primary)_1px,_transparent_0)] bg-[size:24px_24px]"
     ></div>
   </div>
 
-  <!-- Floating Elements -->
   <div
     class="bg-primary/10 animate-float-slow absolute top-10 left-10 h-20 w-20 rounded-full"
   ></div>
@@ -92,7 +90,6 @@
   <div class="bg-chart-2/10 animate-float absolute top-1/3 right-8 h-12 w-12 rounded-full"></div>
 
   <div class="relative mx-auto max-w-7xl">
-    <!-- Header -->
     <div class="mb-16 text-center">
       <h2
         class="from-foreground via-primary to-accent animate-fade-in-up animate-delay-200 mb-6 flex items-center justify-center gap-2 bg-gradient-to-r bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:text-6xl"
@@ -109,19 +106,16 @@
       </p>
     </div>
 
-    <!-- Guidelines Grid -->
     <div class="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
       {#each guidelines as guideline, index}
         <div
           class="group bg-card/80 border-border/50 hover:bg-card hover:shadow-primary/10 animate-fade-in-up relative rounded-2xl border p-8 backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-xl"
           style="animation-delay: {index * 100 + 600}ms"
         >
-          <!-- Card Glow Effect -->
           <div
             class="from-primary/5 to-accent/5 absolute inset-0 rounded-2xl bg-gradient-to-r via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           ></div>
 
-          <!-- Icon -->
           <div class="relative mb-6">
             <div
               class="from-primary/20 to-accent/20 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br transition-transform duration-300 group-hover:scale-110"
@@ -135,7 +129,6 @@
             </div>
           </div>
 
-          <!-- Content -->
           <h3
             class="text-foreground group-hover:text-primary mb-3 text-xl font-bold transition-colors duration-300"
           >
@@ -145,9 +138,6 @@
             {guideline.description}
           </p>
 
-          <!-- Hover Indicator -->
-          <!-- <div class="absolute bottom-4 right-4 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div> -->
-
           <div
             class="from-primary to-accent mt-4 h-0.5 w-0 bg-gradient-to-r transition-all duration-500 ease-out group-hover:w-full"
           ></div>
@@ -155,7 +145,6 @@
       {/each}
     </div>
 
-    <!-- Support Features -->
     <div class="relative">
       <div
         class="from-primary/10 via-accent/5 to-chart-2/10 border-border/30 animate-fade-in-up animate-delay-1200 rounded-3xl border bg-gradient-to-r p-8 backdrop-blur-sm md:p-12"
