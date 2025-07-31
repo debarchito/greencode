@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Shield, Users, Trophy, Globe, AlertTriangle, Clock, FileText } from '@lucide/svelte';
+  import * as Lucide from '@lucide/svelte';
   import { onMount } from 'svelte';
   
   let mounted = false;
@@ -11,7 +11,7 @@
   const rules = [
     {
       id: '1',
-      icon: Users,
+      icon: Lucide.Users,
       title: "Team Size Limit",
       description: "Max team size: 5 (min: 1)",
       detail: "Form teams of 1-5 members to participate",
@@ -19,7 +19,7 @@
     },
     {
       id: '2',
-      icon: AlertTriangle,
+      icon: Lucide.AlertTriangle,
       title: "Original Work Only",
       description: "Pre-built projects will be disqualified",
       detail: "All code must be written during the hackathon",
@@ -27,7 +27,7 @@
     },
     {
       id: '3',
-      icon: FileText,
+      icon: Lucide.FileText,
       title: "One Submission",
       description: "Only one submission per team is allowed",
       detail: "Choose your best work for submission",
@@ -35,7 +35,7 @@
     },
     {
       id: '4',
-      icon: Trophy,
+      icon: Lucide.Trophy,
       title: "Final Decision",
       description: "Judges' decision will be final",
       detail: "All decisions are binding and non-negotiable",
@@ -43,7 +43,7 @@
     },
     {
       id: '5',
-      icon: Globe,
+      icon: Lucide.Globe,
       title: "Internet Allowed",
       description: "Internet use is allowed, but no plagiarism",
       detail: "Research freely but create original solutions",
@@ -51,7 +51,7 @@
     },
     {
       id: '6',
-      icon: Shield,
+      icon: Lucide.Shield,
       title: "Appropriate Content",
       description: "Any offensive or inappropriate content will be rejected",
       detail: "Maintain professional standards throughout",
@@ -59,7 +59,7 @@
     },
     {
       id: '7',
-      icon: Clock,
+      icon: Lucide.Clock,
       title: "Submission Deadline",
       description: "Code, presentations, and uploads must be submitted before deadline",
       detail: "Late submissions will not be accepted",
@@ -83,7 +83,7 @@
     <!-- Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200 flex items-center justify-center gap-2">
-        <Shield />
+        <Lucide.Shield />
         Rules
       </h2>
       
@@ -134,7 +134,7 @@
       <div class="bg-gradient-to-r from-destructive/10 via-accent/5 to-chart-2/10 rounded-3xl p-8 md:p-12 border border-border/30 backdrop-blur-sm animate-fade-in-up animate-delay-1200">
         <div class="text-center mb-8">
           <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4 flex items-center justify-center gap-2">
-            <AlertTriangle />
+            <Lucide.AlertTriangle />
             Important Notice
           </h3>
           <p class="text-muted-foreground">
