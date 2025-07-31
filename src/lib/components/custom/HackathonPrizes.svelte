@@ -1,14 +1,5 @@
 <script lang="ts">
-  import {
-    Trophy,
-    Award,
-    Lightbulb,
-    Presentation,
-    GraduationCap,
-    Crown,
-    Medal,
-    Star,
-  } from "@lucide/svelte";
+  import * as Lucide from "@lucide/svelte";
   import { onMount } from "svelte";
 
   let visible = false;
@@ -21,7 +12,7 @@
 
   const prizes = [
     {
-      icon: Crown,
+      icon: Lucide.Crown,
       title: "1st Prize",
       amount: "₹XXXXXX",
       rank: "🥇",
@@ -31,7 +22,7 @@
       featured: true,
     },
     {
-      icon: Medal,
+      icon: Lucide.Medal,
       title: "2nd Prize",
       amount: "₹XXXXX",
       rank: "🥈",
@@ -41,7 +32,7 @@
       featured: true,
     },
     {
-      icon: Award,
+      icon: Lucide.Award,
       title: "3rd Prize",
       amount: "₹XXXXX",
       rank: "🥉",
@@ -51,7 +42,7 @@
       featured: true,
     },
     {
-      icon: Lightbulb,
+      icon: Lucide.Lightbulb,
       title: "Best Idea Award",
       amount: "₹XXXXX",
       rank: "💡",
@@ -61,7 +52,7 @@
       featured: false,
     },
     {
-      icon: Presentation,
+      icon: Lucide.Presentation,
       title: "Best Presentation Award",
       amount: "₹XXXXX",
       rank: "🗣️",
@@ -78,7 +69,7 @@
     <div
       class="from-primary/20 to-accent/20 mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br"
     >
-      <Trophy class="text-primary h-10 w-10" />
+      <Lucide.Trophy class="text-primary h-10 w-10" />
     </div>
     <h2 class="text-foreground mb-4 text-4xl font-bold">Prize Pool</h2>
     <p class="text-muted-foreground mx-auto max-w-2xl text-lg">
@@ -87,7 +78,6 @@
     </p>
   </div>
 
-  <!-- Main Prizes -->
   <div class="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
     {#each prizes.slice(0, 3) as prize, index}
       <div
@@ -100,7 +90,6 @@
         <div
           class="bg-card border-border relative rounded-2xl border bg-gradient-to-br p-8 shadow-lg transition-all duration-300 hover:shadow-xl {prize.bgGradient}"
         >
-          <!-- Rank Badge -->
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 transform">
             <div
               class="bg-card border-border flex h-12 w-12 items-center justify-center rounded-full border text-2xl shadow-lg"
@@ -138,7 +127,6 @@
     {/each}
   </div>
 
-  <!-- Special Awards -->
   <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
     {#each prizes.slice(3) as prize, index}
       <div
@@ -173,13 +161,12 @@
     {/each}
   </div>
 
-  <!-- Participation Certificate -->
   <div
     class="from-primary/10 via-accent/10 to-secondary/10 border-border rounded-xl border bg-gradient-to-r p-8"
   >
     <div class="mb-4 flex items-center justify-center gap-4">
       <div class="bg-primary/20 flex h-12 w-12 items-center justify-center rounded-full">
-        <GraduationCap class="text-primary h-6 w-6" />
+        <Lucide.GraduationCap class="text-primary h-6 w-6" />
       </div>
       <h3 class="text-foreground text-2xl font-bold">🎓 Participation Certificates for All</h3>
     </div>
@@ -189,12 +176,9 @@
     </p>
   </div>
 
-  <!-- Decorative Elements -->
-  <div class="absolute top-10 right-10 opacity-10">
-    <Star class="text-primary h-24 w-24" />
-  </div>
+  <div class="absolute top-10 right-10 opacity-10"></div>
   <div class="absolute bottom-10 left-10 opacity-10">
-    <Trophy class="text-accent h-20 w-20" />
+    <Lucide.Trophy class="text-accent h-20 w-20" />
   </div>
 </div>
 
