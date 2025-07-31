@@ -1,6 +1,8 @@
 <script lang="ts">
   import HackathonThemes from '$lib/components/web_components/hackathon_themes/HackathonThemes.svelte';
   import Guidelines from '$lib/components/web_components/guidelines/Guidelines.svelte';
+  import HackathonRules from '$lib/components/web_components/hackathon_rules/HackathonRules.svelte';
+  import HackathonPrizes from '$lib/components/web_components/hackathon_prizes/HackathonPrizes.svelte';
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Lucide from "@lucide/svelte";
@@ -426,6 +428,8 @@
 
   <HackathonThemes />
   <Guidelines />
+  <HackathonRules />
+  <HackathonPrizes />
 
   <footer class="border-border/10 bg-background/95 z-11 mt-16 border-t backdrop-blur-md">
     <div class="container mx-auto px-6 py-12">
