@@ -1,8 +1,8 @@
 <script lang="ts">
-  import HackathonThemes from '$lib/components/web_components/hackathon_themes/HackathonThemes.svelte';
-  import Guidelines from '$lib/components/web_components/guidelines/Guidelines.svelte';
-  import HackathonRules from '$lib/components/web_components/hackathon_rules/HackathonRules.svelte';
-  import HackathonPrizes from '$lib/components/web_components/hackathon_prizes/HackathonPrizes.svelte';
+  import HackathonThemes from "$lib/components/web_components/hackathon_themes/HackathonThemes.svelte";
+  import Guidelines from "$lib/components/web_components/guidelines/Guidelines.svelte";
+  import HackathonRules from "$lib/components/web_components/hackathon_rules/HackathonRules.svelte";
+  import HackathonPrizes from "$lib/components/web_components/hackathon_prizes/HackathonPrizes.svelte";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Lucide from "@lucide/svelte";
