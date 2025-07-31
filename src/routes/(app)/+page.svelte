@@ -1,4 +1,6 @@
 <script lang="ts">
+  import HackathonThemes from '$lib/components/web_components/hackathon_themes/HackathonThemes.svelte';
+  import Guidelines from '$lib/components/web_components/guidelines/Guidelines.svelte';
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Lucide from "@lucide/svelte";
@@ -421,6 +423,9 @@
       </div>
     </div>
   </div>
+
+  <HackathonThemes />
+  <Guidelines />
 
   <footer class="border-border/10 bg-background/95 z-11 mt-16 border-t backdrop-blur-md">
     <div class="container mx-auto px-6 py-12">
