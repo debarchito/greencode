@@ -85,7 +85,7 @@
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200 flex items-center justify-center gap-2">
         <Lucide.Scale />
-        Competition Rules
+        Guidelines
       </h2>
       
       <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up animate-delay-400">
