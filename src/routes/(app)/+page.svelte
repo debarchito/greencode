@@ -1,8 +1,8 @@
 <script lang="ts">
-  import HackathonThemes from "$lib/components/web_components/hackathon_themes/HackathonThemes.svelte";
-  import Guidelines from "$lib/components/web_components/guidelines/Guidelines.svelte";
-  import HackathonRules from "$lib/components/web_components/hackathon_rules/HackathonRules.svelte";
-  import HackathonPrizes from "$lib/components/web_components/hackathon_prizes/HackathonPrizes.svelte";
+  import HackathonThemes from "$lib/components/custom/HackathonThemes.svelte";
+  import HackathonPrizes from "$lib/components/custom/HackathonPrizes.svelte";
+  import HackathonRules from "$lib/components/custom/HackathonRules.svelte";
+  import Guidelines from "$lib/components/custom/Guidelines.svelte";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Lucide from "@lucide/svelte";
@@ -354,6 +354,11 @@
     </div>
   </section>
 
+  <HackathonThemes />
+  <Guidelines />
+  <HackathonRules />
+  <HackathonPrizes />
+
   <div class="container mx-auto flex-grow px-4 py-6 sm:py-8 md:py-16">
     <div class="grid grid-cols-1 gap-8 sm:mt-10 sm:gap-16 md:grid-cols-2">
       <div
@@ -425,11 +430,6 @@
       </div>
     </div>
   </div>
-
-  <HackathonThemes />
-  <Guidelines />
-  <HackathonRules />
-  <HackathonPrizes />
 
   <footer class="border-border/10 bg-background/95 z-11 mt-16 border-t backdrop-blur-md">
     <div class="container mx-auto px-6 py-12">
