@@ -4,16 +4,16 @@
   "description": "The website for GreenCode Hackathon",
   "type": "module",
   "scripts": {
-    "start": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & node build/index.js",
+    "start": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & deno -A ./.deno-deploy/server.ts",
     "db": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT",
-    "dev": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & vite dev",
-    "build": "vite build",
-    "preview": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & vite preview",
-    "prepare": "svelte-kit sync || echo ''",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --write .",
-    "lint": "prettier --check . && eslint ."
+    "dev": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & deno run -A npm:vite dev --host=0.0.0.0",
+    "build": "deno run -A npm:vite build",
+    "preview": "pocketbase serve --http=$POCKETBASE_HOST:$POCKETBASE_PORT & deno run -A npm:vite preview --host=0.0.0.0",
+    "prepare": "deno run -A npm:svelte-kit sync || echo ''",
+    "check": "deno run -A npm:svelte-kit sync && deno run -A npm:svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "deno run -A npm:svelte-kit sync && deno run -A npm:svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "deno run -A npm:prettier --write .",
+    "lint": "deno run -A npm:prettier --check . && deno run -A npm:eslint ."
   },
   "dependencies": {
     "@fontsource/maple-mono": "^5.2.5",
