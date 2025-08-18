@@ -30,7 +30,6 @@ function csrf(allowedPaths: string[] = [], allowedOrigins: string[] = []): Handl
       if (request.headers.get("accept") === "application/json") {
         return json({ message }, { status: 403 });
       }
-
       return text(message, { status: 403 });
     }
 
@@ -55,7 +54,6 @@ function pocketbase(): Handle {
     }
 
     const response = await resolve(event);
-
     response.headers.set(
       "set-cookie",
       event.locals.pb.authStore.exportToCookie({
